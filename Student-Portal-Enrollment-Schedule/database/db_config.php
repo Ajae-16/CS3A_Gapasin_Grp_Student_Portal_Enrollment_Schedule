@@ -39,7 +39,6 @@ function getDBConnection() {
 
 /**
  * Execute a prepared SQL query with error message retrieval
- * FIXED VERSION - Handles empty params correctly
  * 
  * @param string $sql SQL query with placeholders
  * @param array $params Parameters for the query
@@ -232,4 +231,5 @@ function rollbackTransaction() {
     }
     return false;
 }
+
 ?>
