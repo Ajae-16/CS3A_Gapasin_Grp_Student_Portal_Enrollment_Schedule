@@ -1,0 +1,999 @@
+/* MANAGEMENT PAGES STYLES */
+
+/* RESET & GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-green: #006400;
+    --primary-green-dark: #004d00;
+    --primary-green-light: #28a745;
+    --accent-light: #90EE90;
+    --bg-main: #f5f7fa;
+    --bg-card: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #6c757d;
+    --border-color: #e1e8ed;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    width: 100vw;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 260px;
+    background: var(--bg-card);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: var(--transition);
+    overflow-y: auto;
+    z-index: 900;
+    border-right: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.sidebar.hidden {
+    transform: translateX(-260px);
+}
+
+/* MAIN CONTENT */
+.management-content {
+    width: calc(100% - 260px);
+    padding: 0 24px 80px 0;
+    min-height: calc(100vh - 128px);
+    transition: var(--transition);
+    background-color: var(--bg-main);
+}
+
+.sidebar.hidden ~ .management-content {
+    width: 100%;
+    margin-left: 0;
+}
+
+.management-content h1,
+.management-content h2 {
+    color: var(--primary-green);
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.management-content h1 {
+    font-size: 28px;
+}
+
+.management-content h2 {
+    font-size: 24px;
+}
+
+/* CONTENT AREA */
+.management-area {
+    width: calc(100%);
+    margin-top: 3px;
+    padding: 32px 24px 80px 0;
+    background-color: var(--bg-main);
+    min-height: calc(100vh - 128px);
+    transition: var(--transition);
+}
+
+.sidebar.hidden ~ .content-area {
+    width: 100%;
+    margin-left: 0;
+}
+
+/* FORM STYLES */
+.form-container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-description {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* BUTTONS */
+.btn-submit,
+.btn-save {
+    background: #10b981;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-submit:hover,
+.btn-save:hover {
+    background: #059669;
+}
+
+.btn-add,
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn-add:hover,
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+.btn-edit {
+    background: #3b82f6;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.btn-edit:hover {
+    background: #2563eb;
+}
+
+.btn-delete,
+.btn-danger {
+    background: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-delete:hover,
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+.btn-secondary {
+    background: #6b7280;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    margin-right: 8px;
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
+}
+
+.btn-cancel {
+    background: #6b7280;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+    background: #4b5563;
+}
+
+/* MESSAGES */
+.message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.message.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+/* REQUIRED FIELDS */
+.required {
+    color: #ef4444;
+}
+
+/* MODAL STYLES */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close,
+.modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus,
+.modal-close:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.modal-header {
+    padding: 24px 24px 0;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 0 24px 24px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+/* TABLE STYLES */
+.students-table,
+.schedules-table,
+.programs-table,
+.course-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.students-table th,
+.students-table td,
+.schedules-table th,
+.schedules-table td,
+.programs-table th,
+.programs-table td,
+.course-table th,
+.course-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.students-table th,
+.schedules-table th,
+.programs-table th,
+.course-table th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+.students-table tr:hover,
+.schedules-table tr:hover,
+.programs-table tr:hover,
+.course-table tr:hover {
+    background: #f9fafb;
+}
+
+.action-cell,
+.course-actions {
+    white-space: nowrap;
+}
+
+/* PAGE HEADER */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+/* EMPTY STATE */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+}
+
+.empty-state h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.empty-state p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* LOADING */
+.loading {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    color: #6b7280;
+}
+
+.spinner {
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* COURSE TABLE CONTAINER */
+.course-table-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    animation: slideIn 0.3s;
+}
+
+/* RESPONSIVE */
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 220px;
+    }
+    .management-content, .content-area, .management-area {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px;
+        transform: translateX(-220px);
+        transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1200;
+        box-shadow: var(--shadow-lg);
+    }
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.3);
+        z-index: 1199;
+        transition: opacity 0.3s;
+    }
+    .management-content,
+    .content-area,
+    .management-area {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 16px 6vw 80px 6vw;
+        box-sizing: border-box;
+    }
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+    .course-table-container {
+        overflow-x: auto;
+    }
+    .course-table, .students-table, .schedules-table, .programs-table {
+        min-width: 600px;
+        font-size: 13px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+    }
+    th, td {
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+    .modal-content {
+        margin: 10px;
+        width: calc(100% - 20px);
+    }
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    .filters select,
+    .btn-green,
+    .btn-outline {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .management-content,
+    .content-area,
+    .management-area {
+        padding: 8px 2vw 60px 2vw;
+    }
+    .modal-content {
+        margin: 2px;
+        width: calc(100% - 4px);
+    }
+}
+
+/* ENROLMENT SCHEDULE SPECIFIC STYLES */
+.enrollment-schedule-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.enrollment-schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.enrollment-schedule-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-green);
+    margin: 0;
+}
+
+.enrollment-refresh-btn {
+    background: var(--primary-green);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.enrollment-refresh-btn:hover {
+    background: var(--primary-green-dark);
+}
+
+.enrollment-schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+    background: white;
+}
+
+.enrollment-schedule-table th,
+.enrollment-schedule-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.enrollment-schedule-table th {
+    background: var(--bg-card);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.enrollment-schedule-table tr:hover {
+    background: var(--bg-main);
+}
+
+.enrollment-year-badge {
+    background: var(--accent-light);
+    color: var(--primary-green);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.enrollment-edit-btn {
+    background: var(--primary-green);
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.enrollment-edit-btn:hover {
+    background: var(--primary-green-dark);
+}
+
+.enrollment-no-data {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* SCROLL BAR STYLING */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-green-dark);
+}
+
+/* COURSE MANAGEMENT SPECIFIC STYLES */
+.course-management-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.course-management-table-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.course-management-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+    background: white;
+}
+
+.course-management-table th,
+.course-management-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.course-management-table th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+.course-management-table tr:hover {
+    background: #f9fafb;
+}
+
+.course-management-actions {
+    white-space: nowrap;
+}
+
+.course-management-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+}
+
+.course-management-empty-state h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.course-management-empty-state p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* PROGRAM MANAGEMENT SPECIFIC STYLES */
+.program-management-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.program-management-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.program-management-table th,
+.program-management-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.program-management-table th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+.program-management-table tr:hover {
+    background: #f9fafb;
+}
+
+.program-management-action-cell {
+    white-space: nowrap;
+}
+
+.program-management-btn-add {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.program-management-btn-add:hover {
+    background: #2563eb;
+}
+
+.program-management-btn-edit {
+    background: #3b82f6;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.program-management-btn-edit:hover {
+    background: #2563eb;
+}
+
+.program-management-btn-delete {
+    background: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.program-management-btn-delete:hover {
+    background: #dc2626;
+}
+
+/* SCHEDULE MANAGEMENT SPECIFIC STYLES */
+.schedule-management-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.schedule-management-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-management-table th,
+.schedule-management-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.schedule-management-table th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+.schedule-management-table tr:hover {
+    background: #f9fafb;
+}
+
+.schedule-management-action-cell {
+    white-space: nowrap;
+}
+
+.schedule-management-btn-add {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.schedule-management-btn-add:hover {
+    background: #2563eb;
+}
+
+.schedule-management-btn-edit {
+    background: #3b82f6;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.schedule-management-btn-edit:hover {
+    background: #2563eb;
+}
+
+.schedule-management-btn-delete {
+    background: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.schedule-management-btn-delete:hover {
+    background: #dc2626;
+}
+
+/* STUDENT MANAGEMENT SPECIFIC STYLES */
+.student-management-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.student-management-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.student-management-table th,
+.student-management-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.student-management-table th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+.student-management-table tr:hover {
+    background: #f9fafb;
+}
+
+.student-management-action-cell {
+    white-space: nowrap;
+}
+
+.student-management-btn-add {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.student-management-btn-add:hover {
+    background: #2563eb;
+}
+
+.student-management-btn-edit {
+    background: #3b82f6;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.student-management-btn-edit:hover {
+    background: #2563eb;
+}
+
+.student-management-btn-delete {
+    background: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.student-management-btn-delete:hover {
+    background: #dc2626;
+}
